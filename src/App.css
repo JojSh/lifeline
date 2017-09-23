@@ -1,13 +1,13 @@
-.Lifeline {
+.App {
   text-align: center;
 }
 
-.Lifeline-logo {
-  animation: Lifeline-logo-spin infinite 20s linear;
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.Lifeline-header {
+.App-header {
   background-color: #222;
   /*height: 50px;*/
   padding: 10px;
@@ -15,7 +15,7 @@
   color: white;
 }
 
-.Lifeline-intro {
+.App-intro {
   font-size: large;
 }
 
@@ -25,8 +25,18 @@ h4 {
   font-size: 12px;
 }
 
+.timeline {
+  display: block;
+}
+
 .Year {
-  padding-top: 100px;
+  padding: 50px 2px 40px 2px;
+  display: inline-block;
+}
+
+.year-title {
+  color: #ffc28e;
+  padding-bottom: 7px;
 }
 
 .Month {
@@ -36,7 +46,6 @@ h4 {
   font-size: 7px;
   border: 1px solid grey;
   border-left: none;
-      /*border-radius: 3px;*/
 }
 
 .Month:first-child {

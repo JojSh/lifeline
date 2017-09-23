@@ -5,22 +5,12 @@ class Year extends Component {
 
   render () {
     const thisYear = this.props.year
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     return (
       <div className='Year'>
-        <div>{thisYear}</div>
-        <div className='monthsWrapper'>
-          <Month name={'Jan'} />
-          <Month name={'Feb'} />
-          <Month name={'Mar'} />
-          <Month name={'Apr'} />
-          <Month name={'May'} />
-          <Month name={'Jun'} />
-          <Month name={'Jul'} />
-          <Month name={'Aug'} />
-          <Month name={'Sep'} />
-          <Month name={'Oct'} />
-          <Month name={'Nov'} />
-          <Month name={'Dec'} />
+        <div className='year-title'>{thisYear}</div>
+        <div className='months-wrapper'>
+          {months.map((monthName) => <Month name={monthName} />)}
         </div>
       </div>
     )
