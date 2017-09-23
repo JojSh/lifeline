@@ -9,9 +9,7 @@
 
 .App-header {
   background-color: #222;
-  /*height: 50px;*/
   padding: 10px;
-  /*font-size: 1px;*/
   color: white;
 }
 
@@ -30,17 +28,18 @@ h4 {
 }
 
 .Year {
-  padding: 50px 2px 40px 2px;
+  padding: 50px 2px 0px 2px;
   display: inline-block;
 }
 
 .year-title {
-  color: #ffc28e;
+  color: #ffb8b8;
   padding-bottom: 7px;
 }
 
 .Month {
   display: inline-block;
+  width: 12px;
   color: grey;
   padding: 3px 8px;
   font-size: 7px;
@@ -57,4 +56,27 @@ h4 {
 .Month:last-child {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+.graph-wrapper {
+  padding-top: 3px;
+}
+
+.Graph {
+  display: inline-block;
+  width: 12px;
+  height: 10px;
+  color: grey;
+  padding: 3px 8px;
+  font-size: 7px;
+  border-right: 1px solid #d2d2d2;
+  border-left: none;
+  background-color: #f8f8f8;
+}
+
+.Graph:first-child {
+  border-left: 1px;
+}
+.Graph:last-child {
+  border-right: 1px;
 }
