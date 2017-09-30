@@ -30,11 +30,18 @@ h4 {
 .Year {
   padding: 50px 2px 0px 2px;
   display: inline-block;
+  text-align: left;
 }
 
 .year-title {
   color: #ffb8b8;
   padding-bottom: 7px;
+  text-align: center;
+  /*padding-left: 40px*/
+}
+
+.months-wrapper {
+  display: inline-block;
 }
 
 .Month {
@@ -45,6 +52,11 @@ h4 {
   font-size: 7px;
   border: 1px solid grey;
   border-left: none;
+  cursor: pointer;
+}
+
+.Month:active {
+  background-color: pink;
 }
 
 .Month:first-child {
@@ -58,16 +70,22 @@ h4 {
   border-bottom-right-radius: 3px;
 }
 
+.m-selected {
+  background-color: pink;
+}
+
 .graph-wrapper {
   padding-top: 3px;
+  margin-left: 1px;
 }
 
 .Graph {
   display: inline-block;
   width: 12px;
-  height: 10px;
+  height: 13px;
   color: grey;
-  padding: 3px 8px;
+  width: 28px;
+  height: 20px;
   font-size: 7px;
   border-right: 1px solid #d2d2d2;
   border-left: none;
@@ -75,8 +93,43 @@ h4 {
 }
 
 .Graph:first-child {
-  border-left: 1px;
+  border-left: 2px;
 }
 .Graph:last-child {
   border-right: 1px;
+  /*margin-right: 25px;*/
+}
+
+.Graph .cell-marker {
+  position: relative;
+  top: 2px;
+  left: -0.5px;
+  width: 13px;
+  height: 8px;
+  color: grey;
+  padding: 3px 8px;
+  font-size: 7px;
+  border: 0.8px solid grey;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: pink;
+  border-left: none;
+  border-right: none;
+}
+
+.name-and-save {
+  border-radius: 20px;
+  border: 1px solid grey;
+  width: 40px;
+  height: 15px;
+  margin: 0 3px 0 2px;
+  font-size: 8px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.name-and-save:active {
+  background-color: grey;
+  color: white;
 }
