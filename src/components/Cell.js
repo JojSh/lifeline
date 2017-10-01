@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Graph extends Component {
+class Cell extends Component {
 
   render () {
     const { atom, year, month } = this.props
@@ -11,11 +11,11 @@ class Graph extends Component {
 
     const cellMarker = cellIsMarked ? <div className='cell-marker' /> : null
     return (
-      <div className='Graph'>
+      <div className='Cell'>
         {cellMarker}
       </div>
     )
   }
 }
 
-export default Graph
+export default Cell

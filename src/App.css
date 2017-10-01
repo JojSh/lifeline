@@ -79,7 +79,7 @@ h4 {
   margin-left: 1px;
 }
 
-.Graph {
+.Cell {
   display: inline-block;
   width: 12px;
   height: 13px;
@@ -92,15 +92,15 @@ h4 {
   background-color: #f8f8f8;
 }
 
-.Graph:first-child {
+.Cell:first-child {
   border-left: 2px;
 }
-.Graph:last-child {
+.Cell:last-child {
   border-right: 1px;
   /*margin-right: 25px;*/
 }
 
-.Graph .cell-marker {
+.Cell .cell-marker {
   position: relative;
   top: 2px;
   left: -0.5px;

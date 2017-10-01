@@ -15,9 +15,7 @@ class Month extends Component {
     return (
       <div className='Month'
         id={monthId}
-        onClick={() => {
-          split(toggleCell, { year, month })
-        }}
+        onClick={() => split(toggleCell, { year, month })}
       >
         {this.props.month}
       </div>

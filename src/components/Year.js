@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Month from './Month'
-import Graph from './Graph'
+import Cell from './Cell'
 
 class Year extends Component {
   render () {
@@ -29,7 +29,7 @@ class Year extends Component {
           {
             months.map((month) => {
               return (
-                <Graph
+                <Cell
                   year={year}
                   month={month}
                   atom={atom}
