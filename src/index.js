@@ -5,7 +5,15 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import createAtom from 'tiny-atom'
 
-const atom = createAtom({ markedCells: [] }, evolve, render)
+const initialState = {
+  newEra: {
+    name: '',
+    markedCells: []
+  },
+  eras: []
+}
+
+const atom = createAtom(initialState, evolve, render)
 render()
 
 function render () {
@@ -17,20 +25,34 @@ function render () {
 function evolve (get, split, action) {
   const state = get()
   const { type, payload } = action
+  let newMarkedCells = []
 
   if (type === 'markCell') {
-    split({ markedCells: [
-      ...state.markedCells,
-      payload
-    ]})
+    newMarkedCells = [...state.newEra.markedCells, payload]
+    split({
+      newEra: Object.assign(state.newEra, {
+        markedCells: newMarkedCells
+      })
+    })
   } else if (type === 'unmarkCell') {
-    const indexToDelete = state.markedCells.findIndex((markedCell) => {
+    const indexToDelete = state.newEra.markedCells.findIndex((markedCell) => {
       return (markedCell.year === payload.year && markedCell.month === payload.month)
     })
-    const newMarkedCells = [
-      ...state.markedCells.slice(0, indexToDelete),
-      ...state.markedCells.slice(indexToDelete + 1)
+    newMarkedCells = [
+      ...state.newEra.markedCells.slice(0, indexToDelete),
+      ...state.newEra.markedCells.slice(indexToDelete + 1)
     ]
-    split({ markedCells: newMarkedCells })
+    split({
+      newEra: Object.assign(state.newEra, {
+        markedCells: newMarkedCells
+      })
+    })
+  } else if (type === 'updateNewEraName') {
+    split({
+      newEra: Object.assign(state.newEra, {
+        name: payload
+      })
+    })
   }
+
 }

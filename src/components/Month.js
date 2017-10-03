@@ -6,7 +6,7 @@ class Month extends Component {
     const { atom, month, year } = this.props
     const { split } = this.props.atom
     const monthId = `m-${month}-${year}`
-    const markedCells = atom.get().markedCells
+    const { markedCells } = atom.get().newEra
     let cellIsMarked = markedCells.find(cell => {
       return (cell.year === year && cell.month === month)
     })

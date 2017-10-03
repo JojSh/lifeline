@@ -5,8 +5,8 @@ import sampleData from './sampleData'
 
 class App extends Component {
 
-  handleSaveEra () {
-    this.func.onSave()
+  saveEraName (e) {
+    this.props.atom.split('updateNewEraName', e.currentTarget.value)
   }
 
   render () {
@@ -21,18 +21,22 @@ class App extends Component {
           <h2>App</h2>
           <h4>Where have you been all your life?</h4>
         </div>
-        <input type='text' placeholder='era name' id='era-input'></input>
+        <input
+          type='text'
+          placeholder='era name'
+          id='era-input'
+          onKeyUp={(e) => this.saveEraName(e)}
+        ></input>
         <input type='submit'
           className='name-and-save'
           value='Save'
-          onClick={this.handleSaveEra.bind(this)}>
+          onClick={() => { this.handleSaveEra() }}>
         </input>
         <div className='timeline'>
           {yearsSinceBirth.map((year, index) =>
             <Year year={year}
               atom={atom}
               key={index}
-              ref={(func) => { this.func = func }}
           />)}
         </div>
       </div>
