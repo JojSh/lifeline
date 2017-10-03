@@ -4,8 +4,9 @@ import Year from './components/Year'
 import sampleData from './sampleData'
 
 class App extends Component {
-  handleSave () {
-    //
+
+  handleSaveEra () {
+    this.func.onSave()
   }
 
   render () {
@@ -24,10 +25,15 @@ class App extends Component {
         <input type='submit'
           className='name-and-save'
           value='Save'
-          onClick={this.handleSave.bind(this)}>
+          onClick={this.handleSaveEra.bind(this)}>
         </input>
         <div className='timeline'>
-          {yearsSinceBirth.map((year) => <Year year={year} atom={atom} />)}
+          {yearsSinceBirth.map((year, index) =>
+            <Year year={year}
+              atom={atom}
+              key={index}
+              ref={(func) => { this.func = func }}
+          />)}
         </div>
       </div>
     )

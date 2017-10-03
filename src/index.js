@@ -27,8 +27,10 @@ function evolve (get, split, action) {
     const indexToDelete = state.markedCells.findIndex((markedCell) => {
       return (markedCell.year === payload.year && markedCell.month === payload.month)
     })
-    const newMarkedCells = state.markedCells
-    newMarkedCells.splice(indexToDelete, 1)
+    const newMarkedCells = [
+      ...state.markedCells.slice(0, indexToDelete),
+      ...state.markedCells.slice(indexToDelete + 1)
+    ]
     split({ markedCells: newMarkedCells })
   }
 }
