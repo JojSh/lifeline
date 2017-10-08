@@ -10,7 +10,7 @@ const initialState = {
     name: '',
     markedCells: []
   },
-  eras: []
+  savedEras: []
 }
 
 const atom = createAtom(initialState, evolve, render)
@@ -53,6 +53,16 @@ function evolve (get, split, action) {
         name: payload
       })
     })
+  } else if (type === 'saveNewEra') {
+    const newSavedEras = [...state.savedEras, payload]
+    split({
+      savedEras: Object.assign(state.savedEras, newSavedEras),
+      newEra: {
+        name: '',
+        markedCells: []
+      }
+    })
+    debugger
+    // load in saved cells/era from state
   }
-
 }

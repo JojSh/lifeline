@@ -9,6 +9,12 @@ class App extends Component {
     this.props.atom.split('updateNewEraName', e.currentTarget.value)
   }
 
+  handleSaveEra () {
+    const atom = this.props.atom
+    const { newEra } = atom.get()
+    atom.split('saveNewEra', newEra)
+  }
+
   render () {
     const { atom } = this.props
     const birthYear = sampleData.birthDate.getFullYear()
