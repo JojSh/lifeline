@@ -16,6 +16,7 @@ class Year extends Component {
     this.setState({
       savedGraphRows: currentRows + 1
     })
+    console.log('rows = ', this.state.savedGraphRows)
   }
 
   renderMonths (months) {
@@ -34,9 +35,7 @@ class Year extends Component {
 
   renderCells (months) {
     const { atom, year } = this.props
-    return months.map(function (month, index) {
-      // debugger
-      // this.renderCell(month, index)
+    return months.map((month, index) => {
       return (
         <Cell
           year={year}
@@ -45,25 +44,24 @@ class Year extends Component {
           key={index}
         />
       )
-    }) // .bind(this))
+    })
   }
-
-  // renderCell (month, index) {
-  //   const { atom, year } = this.props
-  //   return (
-  //     <Cell
-  //       year={year}
-  //       month={month}
-  //       atom={atom}
-  //       key={index}
-  //     />
-  //   )
-  // }
 
   renderSavedCells (months) {
     const { atom, year } = this.props
     const savedEras = atom.get().savedEras
-    const lastSavedEra = savedEras.pop()
+    return savedEras.map((savedEra, index) => {
+      return months.map((month, index) => {
+        return (
+          <Cell
+            year={year}
+            month={month}
+            atom={atom}
+            key={index}
+          />
+        )
+      })
+    })
   }
 
   render () {
@@ -84,7 +82,7 @@ class Year extends Component {
             this.renderCells(months)
           }
         </div>
-        <div className='saved-graphs'>
+        <div className='graph saved-graph'>
           {
             this.renderSavedCells(months)
           }

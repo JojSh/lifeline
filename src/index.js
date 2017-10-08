@@ -17,7 +17,7 @@ const atom = createAtom(initialState, evolve, render)
 render()
 
 function render () {
-  console.log(atom.get())
+  console.log(`state on atom render = ${atom.get()}`)
   ReactDOM.render(<App atom={atom} />, document.getElementById('root'))
   registerServiceWorker()
 }
@@ -62,7 +62,5 @@ function evolve (get, split, action) {
         markedCells: []
       }
     })
-    debugger
-    // load in saved cells/era from state
   }
 }
