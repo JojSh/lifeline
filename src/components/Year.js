@@ -1,23 +1,8 @@
 import React, { Component } from 'react'
 import Month from './Month'
 import Cell from './Cell'
-import SavedCell from './SavedCell'
 
 class Year extends Component {
-  constructor () {
-    super()
-    this.state = {
-      savedGraphRows: 0
-    }
-  }
-
-  onSave () {
-    const currentRows = this.state.savedGraphRows
-    this.setState({
-      savedGraphRows: currentRows + 1
-    })
-    console.log('rows = ', this.state.savedGraphRows)
-  }
 
   renderMonths (months) {
     const { atom, year } = this.props
@@ -35,12 +20,13 @@ class Year extends Component {
 
   renderCells (months) {
     const { atom, year } = this.props
+    const markedCells = atom.get().newEra.markedCells
     return months.map((month, index) => {
       return (
         <Cell
           year={year}
           month={month}
-          atom={atom}
+          markedCells={markedCells}
           key={index}
         />
       )
@@ -50,22 +36,33 @@ class Year extends Component {
   renderSavedCells (months) {
     const { atom, year } = this.props
     const savedEras = atom.get().savedEras
-    return savedEras.map((savedEra, index) => {
-      return months.map((month, index) => {
-        return (
-          <Cell
-            year={year}
-            month={month}
-            atom={atom}
-            key={index}
-          />
-        )
-      })
+    // {
+    //   this.renderCells(months)
+    // }, this)
+    return savedEras.map(function (savedEra, index, arr) {
+      const markedCells = savedEra.markedCells
+
+      return (
+        <div className='saved-graph'>
+          {
+            months.map((month, index) => {
+              return (
+                <Cell
+                  year={year}
+                  month={month}
+                  markedCells={markedCells}
+                  key={index}
+                />
+              )
+            })
+          }
+        </div>
+      )
     })
   }
 
   render () {
-    const { atom, year } = this.props
+    const { year } = this.props
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     return (
       <div className='Year'>
@@ -82,7 +79,7 @@ class Year extends Component {
             this.renderCells(months)
           }
         </div>
-        <div className='graph saved-graph'>
+        <div className='graph saved-graphs'>
           {
             this.renderSavedCells(months)
           }
