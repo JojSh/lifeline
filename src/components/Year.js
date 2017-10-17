@@ -36,14 +36,19 @@ class Year extends Component {
   renderSavedCells (months) {
     const { atom, year } = this.props
     const savedEras = atom.get().savedEras
+    const colours = ['c-turq', 'c-mint', 'c-orange', 'c-purple', 'c-blue', 'c-yellow', 'c-pink']
+    console.log(savedEras)
     // {
     //   this.renderCells(months)
     // }, this)
     return savedEras.map(function (savedEra, index, arr) {
       const markedCells = savedEra.markedCells
+      const cellColour = colours[index % 7]
+      const graphClass = `saved-graph ${cellColour}`
 
       return (
-        <div className='saved-graph'>
+        <div className={graphClass}>
+          <div className='era-label'>{savedEra.name}</div>
           {
             months.map((month, index) => {
               return (

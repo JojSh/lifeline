@@ -112,10 +112,37 @@ h4 {
   border: 0.8px solid grey;
   border-radius: 4px;
   cursor: pointer;
-  background-color: pink;
   border-left: none;
   border-right: none;
+
 }
+
+.saved-graph.c-turq .cell-marker {
+  background-color: #deffff;
+}
+.saved-graph.c-mint .cell-marker {
+  background-color: #9ee6d1;
+}
+.saved-graph.c-orange .cell-marker {
+  background-color: #fedbaa;
+}
+.saved-graph.c-purple .cell-marker {
+  background-color: #ebc7f8;
+}
+.saved-graph.c-blue .cell-marker {
+  background-color: #b3d2ff;
+}
+.saved-graph.c-yellow .cell-marker {
+  background-color: #ffe898;
+}
+.saved-graph.c-pink .cell-marker {
+  background-color: pink;
+}
+
+.c-selecting {
+  background-color: #d2d2d2;
+}
+
 
 .name-and-save {
   border-radius: 20px;
@@ -132,4 +159,11 @@ h4 {
 .name-and-save:active {
   background-color: grey;
   color: white;
+}
+
+.era-label {
+  position: absolute;
+  z-index: 1;
+  font-weight: 100;
+  color: #797979;
 }
