@@ -37,10 +37,6 @@ class Year extends Component {
     const { atom, year } = this.props
     const savedEras = atom.get().savedEras
     const colours = ['c-turq', 'c-mint', 'c-orange', 'c-purple', 'c-blue', 'c-yellow', 'c-pink']
-    console.log(savedEras)
-    // {
-    //   this.renderCells(months)
-    // }, this)
     return savedEras.map(function (savedEra, index, arr) {
       const markedCells = savedEra.markedCells
       const cellColour = colours[index % 7]

@@ -17,7 +17,7 @@ const atom = createAtom(initialState, evolve, render)
 render()
 
 function render () {
-  console.log(`state on atom render = ${atom.get()}`)
+  // console.log(`state on atom render = ${atom.get()}`)
   ReactDOM.render(<App atom={atom} />, document.getElementById('root'))
   registerServiceWorker()
 }
@@ -54,7 +54,7 @@ function evolve (get, split, action) {
       })
     })
   } else if (type === 'saveNewEra') {
-    const newSavedEras = [...state.savedEras, payload]
+    const newSavedEras = [payload, ...state.savedEras]
     split({
       savedEras: Object.assign(state.savedEras, newSavedEras),
       newEra: {
@@ -62,5 +62,6 @@ function evolve (get, split, action) {
         markedCells: []
       }
     })
+    debugger
   }
 }
