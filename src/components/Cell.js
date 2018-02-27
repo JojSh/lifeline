@@ -4,7 +4,6 @@ class Cell extends Component {
 
   render () {
     const { year, month, markedCells } = this.props
-    // const { markedCells } = atom.get().newEra
     let cellIsMarked = markedCells.find(cell => {
       return (cell.year === year && cell.month === month)
     })

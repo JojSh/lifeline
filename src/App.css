@@ -37,7 +37,6 @@ h4 {
   color: #ffb8b8;
   padding-bottom: 7px;
   text-align: center;
-  /*padding-left: 40px*/
 }
 
 .months-wrapper {
@@ -97,7 +96,6 @@ h4 {
 }
 .Cell:last-child {
   border-right: 1px;
-  /*margin-right: 25px;*/
 }
 
 .Cell .cell-marker {
@@ -142,7 +140,6 @@ h4 {
 .c-selecting {
   background-color: #d2d2d2;
 }
-
 
 .name-and-save {
   border-radius: 20px;
