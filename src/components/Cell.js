@@ -8,7 +8,9 @@ class Cell extends Component {
       return (cell.year === year && cell.month === month)
     })
 
-    const cellMarker = cellIsMarked ? <div className='cell-marker c-selecting' /> : null
+    const cellMarker = cellIsMarked
+      ? <div className='cell-marker c-selecting' />
+      : null
     return (
       <div className='Cell'>
         {cellMarker}

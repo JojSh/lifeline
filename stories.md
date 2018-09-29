@@ -3,7 +3,7 @@ I can see a visual representation of the current year
 
 I can set the year of my birth and scroll through all of the years since
 
-I can add a named 'era' and set it's duration and colour
+I can add a named 'era' and set its duration and colour
 
 I can see the associated name of an era in line with it
 
